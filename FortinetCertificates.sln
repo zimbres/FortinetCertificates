@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortinetCertificates", "src\FortinetCertificates\FortinetCertificates.csproj", "{C6553B38-6538-6528-A69B-46175390B4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortinetCertificates.AppHost", "FortinetCertificates.AppHost\FortinetCertificates.AppHost.csproj", "{D3E5F55F-CECB-42DC-8088-FF38DD0535FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortinetCertificates.ServiceDefaults", "FortinetCertificates.ServiceDefaults\FortinetCertificates.ServiceDefaults.csproj", "{A3172D38-2523-9ECA-299E-A2BC527D8FD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspire", "Aspire", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\agent.yml = .github\workflows\agent.yml
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6553B38-6538-6528-A69B-46175390B4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6553B38-6538-6528-A69B-46175390B4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6553B38-6538-6528-A69B-46175390B4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6553B38-6538-6528-A69B-46175390B4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E5F55F-CECB-42DC-8088-FF38DD0535FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E5F55F-CECB-42DC-8088-FF38DD0535FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E5F55F-CECB-42DC-8088-FF38DD0535FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E5F55F-CECB-42DC-8088-FF38DD0535FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3172D38-2523-9ECA-299E-A2BC527D8FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3172D38-2523-9ECA-299E-A2BC527D8FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3172D38-2523-9ECA-299E-A2BC527D8FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3172D38-2523-9ECA-299E-A2BC527D8FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3E5F55F-CECB-42DC-8088-FF38DD0535FF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A3172D38-2523-9ECA-299E-A2BC527D8FD3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B4F8196-ED11-4011-A259-F93EC76A0137}
+	EndGlobalSection
+EndGlobal
