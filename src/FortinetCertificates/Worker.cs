@@ -14,7 +14,7 @@ public class Worker : BackgroundService
         _workerService = workerService;
         _configurations = configuration.GetSection("Configurations").Get<Configurations>();
         _httpClientFactory = httpClientFactory;
-        _httpClient = _httpClientFactory.CreateClient("Default");
+        _httpClient = _httpClientFactory.CreateClient("IgnoreSSL");
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
