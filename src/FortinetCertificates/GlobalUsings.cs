@@ -1,6 +1,7 @@
 ﻿global using FortinetCertificates;
 global using FortinetCertificates.Models;
 global using FortinetCertificates.Services;
+global using Microsoft.Extensions.Diagnostics.HealthChecks;
 global using System.Net;
 global using System.Net.Http.Json;
 global using System.Reflection;

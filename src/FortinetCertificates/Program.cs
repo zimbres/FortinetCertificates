@@ -18,6 +18,12 @@ builder.Services.AddHostedService<Worker>().Configure<HostOptions>(options =>
 {
     options.BackgroundServiceExceptionBehavior = BackgroundServiceExceptionBehavior.Ignore;
 });
+builder.Services.AddSingleton<IHealthCheckPublisher, HealthCheckPublisher>();
+builder.Services.Configure<HealthCheckPublisherOptions>(options =>
+{
+    options.Delay = TimeSpan.FromSeconds(5);
+    options.Period = TimeSpan.FromSeconds(20);
+});
 
 var host = builder.Build();
 host.Run();
