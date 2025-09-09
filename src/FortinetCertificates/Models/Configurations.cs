@@ -10,6 +10,8 @@ public class Configurations
     public string PingEndpoint { get; set; }
     public int AgentId { get; set; }
     public List<Firewall> Firewalls { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
 }
 
 public class Firewall

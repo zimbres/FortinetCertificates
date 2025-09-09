@@ -15,6 +15,10 @@ public class AgentService
         _httpClientFactory = httpClientFactory;
         _configurations = configuration.GetSection("Configurations").Get<Configurations>();
         _logService = logService;
+        if (!string.IsNullOrEmpty(_configurations.Username) && !string.IsNullOrEmpty(_configurations.Password))
+        {
+            _httpClient.ApplyBasicAuth(_configurations.Username, _configurations.Password);
+        }
     }
 
     public async Task<List<Domain>> GetDomains()
