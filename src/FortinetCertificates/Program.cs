@@ -14,6 +14,7 @@ builder.Services.AddSingleton<CertInfoService>();
 builder.Services.AddSingleton<AgentService>();
 builder.Services.AddSingleton<WorkerService>();
 builder.Services.AddSingleton<LogService>();
+builder.Services.AddSingleton<AuthService>();
 builder.Services.AddHostedService<Worker>().Configure<HostOptions>(options =>
 {
     options.BackgroundServiceExceptionBehavior = BackgroundServiceExceptionBehavior.Ignore;

@@ -2,9 +2,12 @@
 
 public static class HttpClientExtension
 {
-    public static void ApplyBasicAuth(this HttpClient client, string username, string password)
+    public static async Task ApplyAuthAsync(this HttpClient client, AuthService authService)
     {
-        var byteArray = Encoding.ASCII.GetBytes($"{username}:{password}");
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+        var header = await authService.GetAuthHeaderAsync();
+        if (header != null)
+        {
+            client.DefaultRequestHeaders.Authorization = header;
+        }
     }
 }
