@@ -9,6 +9,8 @@ public class AuthService
     private DateTime _tokenExpiry = DateTime.MinValue;
     private readonly SemaphoreSlim _lock = new(1, 1);
     private readonly HttpClient _httpClient;
+    private readonly CancellationTokenSource _cts = new();
+    private readonly Task _backgroundTask;
 
     public AuthService(ILogger<AuthService> logger, IConfiguration configuration, IHttpClientFactory httpClientFactory)
     {
@@ -16,6 +18,30 @@ public class AuthService
         _configurations = configuration.GetSection("Configurations").Get<Configurations>();
         _httpClientFactory = httpClientFactory;
         _httpClient = _httpClientFactory.CreateClient("IgnoreSSL");
+        _backgroundTask = Task.Run(() => RefreshLoopAsync(_cts.Token));
+    }
+
+    private async Task RefreshLoopAsync(CancellationToken cancellationToken)
+    {
+        var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
+        try
+        {
+            while (await timer.WaitForNextTickAsync(cancellationToken))
+            {
+                try
+                {
+                    await GetBearerTokenAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error refreshing token in background");
+                }
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Graceful exit
+        }
     }
 
     public async Task<AuthenticationHeaderValue> GetAuthHeaderAsync()
@@ -45,6 +71,8 @@ public class AuthService
         await _lock.WaitAsync();
         try
         {
+            _logger.LogInformation(DateTime.Now.ToString());
+            _logger.LogInformation(_accessToken);
             if (!string.IsNullOrEmpty(_accessToken) && DateTime.UtcNow < _tokenExpiry)
             {
                 return new AuthenticationHeaderValue("Bearer", _accessToken);
