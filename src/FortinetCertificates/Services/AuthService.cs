@@ -71,8 +71,6 @@ public class AuthService
         await _lock.WaitAsync();
         try
         {
-            _logger.LogInformation(DateTime.Now.ToString());
-            _logger.LogInformation(_accessToken);
             if (!string.IsNullOrEmpty(_accessToken) && DateTime.UtcNow < _tokenExpiry)
             {
                 return new AuthenticationHeaderValue("Bearer", _accessToken);
